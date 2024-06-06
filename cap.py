@@ -19,6 +19,7 @@ def main():
             "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#fafafa"},
             "nav-link-selected": {"background-color": "#08c7b4"},
         })
+    st.sidebar.markdown("캡스톤 4조")
     if choice == '동별 노인 인구수':
         st.header("안양시 동별 노인 인구수")
         st.divider()
