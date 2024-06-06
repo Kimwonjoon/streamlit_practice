@@ -38,7 +38,7 @@ def main():
             plt.xticks(rotation = 45)
             st.pyplot(fig)
     elif choice == '유년기, 노년기 인구 변화':
-        st.header("Anyang childhood(r) and old age(b)")
+        st.header("안양시 유년기, 노년기 인구 변화 비교")
         col1, col2 = st.columns(2)
         old = pd.read_csv('노년기.csv')
         young = pd.read_csv('유년기.csv')
@@ -52,7 +52,7 @@ def main():
             fig = plt.figure()
             plt.plot(old.index, old['합'], 'bo-', c = 'r', label = '노년기')
             plt.plot(old.index, young['합'], marker = '*', c = 'b', label = '유년기')
-            plt.title('2014-2023 안양시 유년기, 노년기 인구 변화')
+            plt.title('2014-2023 Anyang childhood(r) and old age(b)')
             plt.xticks(old.index)
             plt.legend()
             st.pyplot(fig) 
