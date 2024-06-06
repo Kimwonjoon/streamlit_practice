@@ -7,6 +7,8 @@ import pandas as pd
 
 def main():
     st.set_page_config(layout="wide")
+    logo_url = 'title.jpg'
+    st.sidebar.image(logo_url)
     with st.sidebar:
         choice = option_menu("Menu", ['동별 노인 인구수','유년기, 노년기 인구 변화',
                                     '안양시 전체 등락','안양시 종합 지도'],
