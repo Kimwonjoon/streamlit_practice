@@ -26,11 +26,11 @@ def main():
         df = pd.read_csv('안양_65세이상_동별_2023.csv').iloc[:,1:]
         df2 = df.sort_values(by = '계', ascending = False).reset_index(drop = True)
         with col1:
-            st.header("동별 노인 인구수 CSV")
+            st.subheader("동별 노인 인구수 CSV")
             st.write(df2)
             st.divider()
         with col2:
-            st.header("동별 노인 인구수 Bar Chart")
+            st.subheader("동별 노인 인구수 Bar Chart")
             fig = plt.figure(figsize = (15,10))
             plt.bar(df2['행정구역(동읍면)별'], df2['계'])
             plt.title('Anyang 65 years of age or older')
@@ -43,13 +43,13 @@ def main():
         old = pd.read_csv('노년기.csv')
         young = pd.read_csv('유년기.csv')
         with col1:
-            st.header("노년기")
+            st.subheader("노년기")
             st.write(old)
             st.divider()
-            st.header("유년기")
+            st.subheader("유년기")
             st.write(young)
         with col2:
-            st.header("2014-2023 안양시 유년기, 노년기 인구 변화")
+            st.subheader("2014-2023 안양시 유년기, 노년기 인구 변화")
             fig = plt.figure()
             plt.plot(old.index, old['합'], 'bo-', c = 'r', label = '노년기')
             plt.plot(old.index, young['합'], marker = '*', c = 'b', label = '유년기')
