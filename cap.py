@@ -21,6 +21,7 @@ def main():
         })
     if choice == '동별 노인 인구수':
         st.header("안양시 동별 노인 인구수")
+        st.divider()
         col1, col2 = st.columns(2)
         df = pd.read_csv('안양_65세이상_동별_2023.csv').iloc[:,1:]
         df2 = df.sort_values(by = '계', ascending = False).reset_index(drop = True)
@@ -37,6 +38,7 @@ def main():
             st.pyplot(fig)
     elif choice == '유년기, 노년기 인구 변화':
         st.header("안양시 유년기, 노년기 인구 변화 비교")
+        st.divider()
         col1, col2 = st.columns(2, gap = 'small')
         old = pd.read_csv('노년기.csv')
         young = pd.read_csv('유년기.csv')
@@ -64,6 +66,7 @@ def main():
 
         # Show in webpage
         st.header("안양시 인구 등락 지도")
+        st.divider()
         html(html_data2, width=1600, height=800)
 
     elif choice == '안양시 종합 지도':
@@ -75,6 +78,7 @@ def main():
 
         # Show in webpage
         st.header("안양시 종합 지도")
+        st.divider()
         html(html_data, width=1600, height=800)
 if __name__ == '__main__':
     main()
