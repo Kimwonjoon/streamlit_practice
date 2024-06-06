@@ -34,11 +34,11 @@ def main():
             st.header("동별 노인 인구수 Bar Chart")
             fig = plt.figure(figsize = (15,10))
             plt.bar(df2['행정구역(동읍면)별'], df2['계'])
-            plt.title('안양시 동별 65세 이상 노인 인구수')
+            plt.title('Anyang 65 years of age or older')
             plt.xticks(rotation = 45)
             st.pyplot(fig)
     elif choice == '유년기, 노년기 인구 변화':
-        st.header("안양시 유년기, 노년기 인구 변화 비교")
+        st.header("Anyang childhood(r) and old age(b)")
         col1, col2 = st.columns(2)
         old = pd.read_csv('노년기.csv')
         young = pd.read_csv('유년기.csv')
