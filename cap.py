@@ -43,13 +43,13 @@ def main():
         old = pd.read_csv('노년기.csv')
         young = pd.read_csv('유년기.csv')
         with col1:
-            st.subheader("노년기")
+            st.subheader(":blue[노년기]")
             st.write(old)
             st.divider()
-            st.subheader("유년기")
+            st.subheader(":red[유년기]")
             st.write(young)
         with col2:
-            st.subheader("2014-2023 안양시 유년기, 노년기 인구 변화")
+            st.subheader("2014-2023 안양시 :red[유년기], :blue[노년기] 인구 변화")
             fig = plt.figure()
             plt.plot(old.index, old['합'], 'bo-', c = 'r', label = '노년기')
             plt.plot(old.index, young['합'], marker = '*', c = 'b', label = '유년기')
