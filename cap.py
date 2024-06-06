@@ -1,12 +1,9 @@
 import streamlit as st
 from streamlit.components.v1 import html
-from PIL import Image
 from streamlit_option_menu import option_menu
 
 import matplotlib.pyplot as plt
 import pandas as pd
-plt.rcParams['font.family'] ='Malgun Gothic'
-plt.rcParams['axes.unicode_minus'] =False
 
 def main():
     st.set_page_config(layout="wide")
@@ -35,7 +32,7 @@ def main():
             st.header("동별 노인 인구수 Bar Chart")
             fig = plt.figure(figsize = (15,10))
             plt.bar(df2['행정구역(동읍면)별'], df2['계'])
-            plt.title('안양시 동별 65세 이상 노인 인구수')
+            plt.title('Anyang 65 years of age or older')
             plt.xticks(rotation = 45)
             st.pyplot(fig)
     elif choice == '유년기, 노년기 인구 변화':
@@ -54,7 +51,7 @@ def main():
             fig = plt.figure()
             plt.plot(old.index, old['합'], 'bo-', c = 'r', label = '노년기')
             plt.plot(old.index, young['합'], marker = '*', c = 'b', label = '유년기')
-            plt.title('2014-2023 안양시 유년기, 노년기 인구 변화')
+            plt.title('2014-2023 Anyang childhood(r) and old age(b)')
             plt.xticks(old.index)
             plt.legend()
             st.pyplot(fig) 
