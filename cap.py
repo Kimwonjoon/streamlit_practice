@@ -5,7 +5,7 @@ from streamlit_option_menu import option_menu
 
 import matplotlib.pyplot as plt
 import pandas as pd
-plt.rc('font', family='NanumBarunGothic')
+# plt.rc('font', family='NanumBarunGothic')
 # plt.rcParams['axes.unicode_minus'] =False
 
 def main():
