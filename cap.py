@@ -66,7 +66,7 @@ def main():
     elif choice == '안양시 전체 등락':
         st.header("안양시 인구 등락 정보")
         st.divider()
-        col1, col2 = st.columns(2)
+        col1, col2 = st.columns([4,6])
         with col1:
             st.subheader('동별 등락 그래프 2022 ~ 2023')
             updown = pd.read_csv('안양시_2022_2023_인구변화.csv').iloc[:,1:]
