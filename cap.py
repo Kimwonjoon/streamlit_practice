@@ -12,10 +12,8 @@ def main():
     logo_url = 'title.jpg'
     st.sidebar.image(logo_url)
     with st.sidebar:
-        choice = option_menu("Menu", ['동별 노인 인구수','유년기, 노년기 인구 변화',
-                                    '안양시 전체 등락','안양시 종합 지도'],
-                            icons=['bi bi-graph-up-arrow', 'bi bi-people',
-                                'bi bi-map', 'bi bi-globe-americas'],
+        choice = option_menu("Menu", ['유년기, 노년기 인구 변화','안양시 전체 등락', '안양시 유소년 시설 지도', '동별 노인 인구수','안양시 종합 지도'],
+                            icons=['bi bi-people', 'bi bi-map', 'bi bi-backpack3', 'bi bi-graph-up-arrow', 'bi bi-globe-americas'],
                             menu_icon="bi bi-app-indicator", default_index=0,
                             styles={
             "container": {"padding": "4!important", "background-color": "#fafafa"},
@@ -101,5 +99,12 @@ def main():
         st.divider()
         st.caption(':red[노인복지관] / :blue[치매안심센터]')
         html(html_data, width=1500, height=800)
+    elif choice == '안양시 유소년 시설 지도':
+        path_to_html3 = "young.html"
+        with open(path_to_html3,'r',encoding='UTF-8') as h: 
+            html_data3 = h.read()
+        st.header("안양시 유소년 시설 지도")
+        st.divider()
+        html(html_data3, width=1500, height=800)
 if __name__ == '__main__':
     main()
