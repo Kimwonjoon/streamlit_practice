@@ -4,6 +4,8 @@ from streamlit_option_menu import option_menu
 
 import matplotlib.pyplot as plt
 import pandas as pd
+plt.rcParams['font.family'] ='Malgun Gothic'
+plt.rcParams['axes.unicode_minus'] =False
 
 def main():
     st.set_page_config(layout="wide")
@@ -21,7 +23,7 @@ def main():
             "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#fafafa"},
             "nav-link-selected": {"background-color": "#08c7b4"},
         })
-    st.sidebar.markdown("캡스톤 4조")
+    st.sidebar.markdown("※모든 데이터는 2023년 이전을 기준으로 사용 되었습니다※")
     if choice == '동별 노인 인구수':
         st.header("안양시 동별 노인 인구수")
         st.divider()
@@ -62,18 +64,32 @@ def main():
             st.pyplot(fig) 
 
     elif choice == '안양시 전체 등락':
-        path_to_html2 = "안양전체등락.html"
-
-        with open(path_to_html2,'r',encoding='UTF-8') as g: 
-            html_data2 = g.read()
-
-        # Show in webpage
-        st.header("안양시 인구 등락 지도")
+        st.header("안양시 인구 등락 정보")
         st.divider()
-        html(html_data2, width=1600, height=800)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('동별 등락 그래프 2022 ~ 2023')
+            updown = pd.read_csv('안양시_2022_2023_인구변화.csv').iloc[:,1:]
+            col_li = ['tab:red' if i < 0 else 'tab:blue' for i in updown['change']]
+            fig = plt.figure(figsize = (7,5))
+            plt.bar(updown['행정구역(동읍면)별'], updown['change'], color = col_li)
+            plt.xticks(range(len(updown.index)),fontsize = 7, rotation = 45)
+            plt.axhline(y=0, color = 'black')
+            st.pyplot(fig)
+            col3, col4 = st.columns(2)
+            col3.metric('비산1동',int(updown[(updown['행정구역(동읍면)별'] == '비산1동')]['2023']), int(updown[(updown['행정구역(동읍면)별'] == '비산1동')]['change']))
+            col4.metric('호계1동',int(updown[(updown['행정구역(동읍면)별'] == '호계1동')]['2023']), int(updown[(updown['행정구역(동읍면)별'] == '호계1동')]['change']))
+
+        with col2:
+            st.subheader('동별 등락 지도 2022 ~ 2023')
+            path_to_html2 = "안양전체등락.html"
+
+            with open(path_to_html2,'r',encoding='UTF-8') as g: 
+                html_data2 = g.read()
+            # Show in webpage
+            html(html_data2, width=800, height=800)
 
     elif choice == '안양시 종합 지도':
-
         path_to_html = "안양나이대.html" 
 
         with open(path_to_html,'r',encoding='UTF-8') as f: 
