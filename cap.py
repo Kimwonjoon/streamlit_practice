@@ -98,13 +98,13 @@ def main():
         st.header("안양시 종합 지도")
         st.divider()
         st.caption(':red[노인복지관] / :blue[치매안심센터]')
-        html(html_data, width=1500, height=800)
+        html(html_data, width=1400, height=800)
     elif choice == '안양시 유소년 시설 지도':
         path_to_html3 = "young.html"
         with open(path_to_html3,'r',encoding='UTF-8') as h: 
             html_data3 = h.read()
         st.header("안양시 유소년 시설 지도")
         st.divider()
-        html(html_data3, width=1500, height=800)
+        html(html_data3, width=1400, height=800)
 if __name__ == '__main__':
     main()
