@@ -100,6 +100,6 @@ def main():
         st.header("안양시 종합 지도")
         st.divider()
         st.caption(':red[노인복지관] / :blue[치매안심센터]')
-        html(html_data, width=1600, height=800)
+        html(html_data, width=1500, height=800)
 if __name__ == '__main__':
     main()
