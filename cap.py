@@ -76,6 +76,7 @@ def main():
             plt.xticks(range(len(updown.index)),fontsize = 7, rotation = 45)
             plt.axhline(y=0, color = 'black')
             st.pyplot(fig)
+            st.divider()
             col3, col4 = st.columns(2)
             col3.metric('비산1동',int(updown[(updown['행정구역(동읍면)별'] == '비산1동')]['2023']), int(updown[(updown['행정구역(동읍면)별'] == '비산1동')]['change']))
             col4.metric('호계1동',int(updown[(updown['행정구역(동읍면)별'] == '호계1동')]['2023']), int(updown[(updown['행정구역(동읍면)별'] == '호계1동')]['change']))
